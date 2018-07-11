@@ -6,7 +6,7 @@ import createSpy = jasmine.createSpy;
 
 describe('CarouselService', () => {
   const imageSources = [
-    'https://www.w3schools.com/bootstrap4/ny.jpg',
+    'http://www.violinshoptampa.com/Violin%20Shop%20Tampa-15.jpg',
     '2',
     '3'
   ];
@@ -73,7 +73,7 @@ describe('CarouselService', () => {
 
         onImageLoad.subscribe(src => {
           expect(src).toBe(
-            'https://www.w3schools.com/bootstrap4/ny.jpg'
+            'http://www.violinshoptampa.com/Violin%20Shop%20Tampa-15.jpg'
           );
         });
       }
@@ -82,7 +82,7 @@ describe('CarouselService', () => {
     it('should invoke logger', inject(
       [CarouselService],
       (service: CarouselService) => {
-        const spy = spyOn(service, 'carouselTinyLogger');
+        const spy = spyOn<any>(service, 'carouselTinyLogger');
 
         service.init(imageSources, config);
         (service as any).onImageElementLoad(['imgSrc'], 'loadedImgSrc');
@@ -94,7 +94,7 @@ describe('CarouselService', () => {
     it('should invoke function checks if all images is load', inject(
       [CarouselService],
       (service: CarouselService) => {
-        const spy = spyOn(service, 'emitIfAllImagesLoaded');
+        const spy = spyOn<any>(service, 'emitIfAllImagesLoaded');
 
         service.init(imageSources, config);
         (service as any).onImageElementLoad(['imgSrc'], 'loadedImgSrc');
@@ -119,7 +119,7 @@ describe('CarouselService', () => {
     it('should invoke logger', inject(
       [CarouselService],
       (service: CarouselService) => {
-        const spy = spyOn(service, 'carouselTinyLogger');
+        const spy = spyOn<any>(service, 'carouselTinyLogger');
 
         service.init(imageSources, config);
         (service as any).onImageElementLoadError(['imgSrc'], 'loadedImgSrc');
@@ -131,7 +131,7 @@ describe('CarouselService', () => {
     it('should invoke function checks if all images is load', inject(
       [CarouselService],
       (service: CarouselService) => {
-        const spy = spyOn(service, 'emitIfAllImagesLoaded');
+        const spy = spyOn<any>(service, 'emitIfAllImagesLoaded');
 
         service.init(imageSources, config);
         (service as any).onImageElementLoadError(['imgSrc'], 'loadedImgSrc');

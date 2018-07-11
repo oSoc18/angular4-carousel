@@ -30,7 +30,7 @@ describe('CarouselComponent', () => {
     fixture = TestBed.createComponent(CarouselComponent);
     component = fixture.componentInstance;
     (component as any).sources = [
-      'https://www.w3schools.com/bootstrap4/ny.jpg',
+      'http://www.violinshoptampa.com/Violin%20Shop%20Tampa-15.jpg',
       'http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg',
       'https://d1llvcsapfiksz.cloudfront.net/vendors/samplephonics/deep-sax/images/DeepSax_mobile.jpg',
       'https://www.abamet.ru/images/press/haas/press-releases/2013/gaboi-rigoutat.jpg'
