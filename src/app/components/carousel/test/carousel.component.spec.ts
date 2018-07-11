@@ -1,4 +1,9 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  inject
+} from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { CarouselComponent } from '../';
@@ -15,21 +20,20 @@ describe('CarouselComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ],
+      declarations: [CarouselComponent],
       providers: [CarouselService, WindowWidthService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CarouselComponent);
     component = fixture.componentInstance;
     (component as any).sources = [
-      'http://www.violinshoptampa.com/Violin%20Shop%20Tampa-15.jpg',
+      'https://www.w3schools.com/bootstrap4/ny.jpg',
       'http://gomighty.com/wp-content/themes/gomighty/lib/goal_images/files/SMusicPianoAntiqueshutterstock_-1920.jpg',
       'https://d1llvcsapfiksz.cloudfront.net/vendors/samplephonics/deep-sax/images/DeepSax_mobile.jpg',
-      'https://www.abamet.ru/images/press/haas/press-releases/2013/gaboi-rigoutat.jpg',
+      'https://www.abamet.ru/images/press/haas/press-releases/2013/gaboi-rigoutat.jpg'
     ];
 
     (component as any).config = {
@@ -48,29 +52,33 @@ describe('CarouselComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should subscribe on image loading when start',  inject([CarouselService], (carouselService: CarouselService) => {
-    (carouselService as any).imageLoad.next('!');
+  it('should subscribe on image loading when start', inject(
+    [CarouselService],
+    (carouselService: CarouselService) => {
+      (carouselService as any).imageLoad.next('!');
 
-    expect(component.loadedImages.pop()).toBe('!');
-  }));
+      expect(component.loadedImages.pop()).toBe('!');
+    }
+  ));
 
   describe('on init', () => {
+    it('should add all imgs as loaded imgs', () => {
+      expect(component.loadedImages.length).toEqual(4);
+    });
 
-      it('should add all imgs as loaded imgs', () => {
-        expect(component.loadedImages.length).toEqual(4);
-      });
-
-      it('should init service', inject([CarouselService], (carouselService: CarouselService) => {
+    it('should init service', inject(
+      [CarouselService],
+      (carouselService: CarouselService) => {
         const spy = spyOn(carouselService, 'init');
 
         component.ngOnInit();
 
         expect(spy).toHaveBeenCalled();
-      }));
+      }
+    ));
   });
 
   describe('slide handler', () => {
-
     it('should set next slide if direction is "next"', () => {
       component.loadedImages = ['1', '2', '3'];
 
@@ -96,7 +104,6 @@ describe('CarouselComponent', () => {
 
       expect(component.currentSlide).toEqual(currentSlide);
     });
-
   });
 
   it('should have ref to carouselHandlerDirective', () => {
@@ -108,11 +115,12 @@ describe('CarouselComponent', () => {
   });
 
   it('confgi should implement interface ICarouselConfig', () => {
-    expect(((component as any).config as ICarouselConfig).animation).toBeDefined();
+    expect(
+      ((component as any).config as ICarouselConfig).animation
+    ).toBeDefined();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
-
