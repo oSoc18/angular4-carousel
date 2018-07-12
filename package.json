@@ -1,17 +1,16 @@
 {
-  "name": "angular4-carousel",
-  "description": "Configurable angular2/4 carousel",
+  "name": "octotrails-ng6-carousel",
+  "description": "Configurable angular6 carousel",
   "keywords": [
-    "Angular2",
-    "Angular4",
+    "Angular6",
     "carousel",
     "image slider"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bonjurmrfirst/angular4-carousel"
+    "url": "https://github.com/osoc18/octotrails-ng-carousel"
   },
-  "version": "3.1.8",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -21,7 +20,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": false,
+  "private": true,
   "dependencies": {
     "@angular/common": "6.0.9",
     "@angular/compiler": "6.0.9",
